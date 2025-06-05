@@ -1,0 +1,18 @@
+version: 2
+
+seeds:
+  - name: raw_sales
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: country
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+          - accepted_values:
+              values: [50, 100, 150, 200, 300]  # Podés adaptar esto si querés validar valores esperados
+

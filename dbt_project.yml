@@ -1,0 +1,33 @@
+name: 'my_dbt_project'
+version: '1.0'
+config-version: 2
+
+profile: 'bigquery_demo'
+
+model-paths: ['models']
+seed-paths: ['seeds']
+test-paths: ['tests']
+analysis-paths: ['analysis']
+macro-paths: ['macros']
+snapshot-paths: ['snapshots']
+target-path: 'target'
+clean-targets:
+  - 'target'
+  - 'dbt_modules'
+
+models:
+  my_dbt_project:
+    +materialized: view         # Por defecto, todo se crea como vista
+    staging:
+      +schema: stg              # Los modelos en /models/staging irán al schema "stg"
+    marts:
+      +schema: marts            # Los modelos en /models/marts irán al schema "marts"
+
+seeds:
+  my_dbt_project:
+    +schema: raw                # Los seeds van al schema "raw"
+    +column_types:
+      order_id: integer
+      country: string
+      amount: float
+
