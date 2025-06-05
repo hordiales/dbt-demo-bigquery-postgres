@@ -2,7 +2,8 @@ name: 'my_dbt_project'
 version: '1.0'
 config-version: 2
 
-profile: 'bigquery_demo'
+#profile: 'bigquery_demo'
+profile: 'dbt_demo'
 
 model-paths: ['models']
 seed-paths: ['seeds']
@@ -28,6 +29,10 @@ seeds:
     +schema: raw                # Los seeds van al schema "raw"
     +column_types:
       order_id: integer
-      country: string
-      amount: float
+#bigquery
+      #country: string
+      #amount: float
+#postgress
+      country: text
+      amount: numeric
 
