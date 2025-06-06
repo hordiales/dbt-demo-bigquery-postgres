@@ -12,13 +12,20 @@ Adaptadores
 
 
 
+# Inicializar proyecto
+
+	dbt init
+
+
+# Ejecutar
+
 	dbt debug               # verifica configuraciones
-	dbt seed                # sube raw_sales a DB
+	dbt seed                # sube raw_sales a DB (ingestar tabla desde csv)
 	dbt run                 # ejecuta los modelos
 	dbt build               # (opcional, incluye tests, por ejemplo para calidad)
 
 
-BigQuery target por defecto
+WARNING: BigQuery target por defecto
 sino
 	dbt build --target postgres
 
