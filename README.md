@@ -31,8 +31,9 @@ sino
 
 
 # BD config
-## Postgress
-https://github.com/hordiales/postgress_docker
+## Postgres
+
+Run postgres locally using a docker: https://github.com/hordiales/postgress_docker
 
 set up credentianls in profile
 
