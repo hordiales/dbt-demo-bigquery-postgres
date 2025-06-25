@@ -20,19 +20,21 @@ models:
   my_dbt_project:
     +materialized: view         # Por defecto, todo se crea como vista
     staging:
-      +schema: stg              # Los modelos en /models/staging irán al schema "stg"
+      +schema: stg              # Los modelos en /models/staging irán al schema "stg" (o silver)
     marts:
-      +schema: marts            # Los modelos en /models/marts irán al schema "marts"
+      +schema: marts            # Los modelos en /models/marts irán al schema "marts" (o gold)
 
 seeds:
   my_dbt_project:
-    +schema: raw                # Los seeds van al schema "raw"
+    +schema: raw                # Los seeds van al schema "raw" (los datos ingestados)
     +column_types:
       order_id: integer
-#bigquery
+#bigquery db
       #country: string
       #amount: float
-#postgress
+#postgres db
       country: text
       amount: numeric
+#otro motor db, van a especificar los tipos de datos correspondientes
+
 
