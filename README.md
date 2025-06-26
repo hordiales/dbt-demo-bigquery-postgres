@@ -43,10 +43,20 @@ Reminders:
 	dbt run                 # ejecuta los modelos
 	dbt build               # (opcional, incluye tests, por ejemplo para calidad)
 
+Los tests en principio preparados para postgres bd
+	dbt build --target postgres
+
 
 WARNING: BigQuery target por defecto
 sino
 	dbt build --target postgres
+
+
+# Generar documentación extra
+
+
+	dbt docs generate #crea la documentación y el diagrama de dependencias en formato HTML.
+	dbt docs serve # levanta un servidor local donde puedes navegar la documentación y ver el diagrama interactivo de dependencias entre tus modelos, seeds, snapshots, etc.
 
 
 # BD config

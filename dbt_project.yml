@@ -1,8 +1,7 @@
 name: 'my_dbt_project'
-version: '1.0'
+version: '1.1'
 config-version: 2
 
-#profile: 'bigquery_demo'
 profile: 'dbt_demo'
 
 model-paths: ['models']
@@ -20,15 +19,15 @@ models:
   my_dbt_project:
     +materialized: view         # Por defecto, todo se crea como vista
     staging:
-      +schema: stg              # Los modelos en /models/staging irán al schema "stg" (o silver)
-    marts:
-      +schema: marts            # Los modelos en /models/marts irán al schema "marts" (o gold)
+      +schema: stg              # Los modelos en /models/staging irán al schema "stg" (o silver) luego el target es target_stg
+    marts: # capa gold
+      +schema: marts            # Los modelos en /models/marts irán al schema "marts" (o gold), target_marts
 
 seeds:
   my_dbt_project:
-    +schema: raw                # Los seeds van al schema "raw" (los datos ingestados)
+    +schema: raw                # Los seeds van al schema "raw" (los datos ingestados) target_raw
     +column_types:
-      order_id: integer
+      order_id: integerdbt
 #bigquery db
       #country: string
       #amount: float
